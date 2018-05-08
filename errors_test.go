@@ -4,8 +4,8 @@ import (
 	"testing"
 
 	goerrors "errors"
-	"github.com/stretchr/testify/assert"
 	"github.com/aviau/errors"
+	"github.com/stretchr/testify/assert"
 )
 
 func assertContainsStackTrace(t *testing.T, err errors.ErrorWithStackTrace) {
@@ -43,6 +43,12 @@ func TestWithMessageGoError(t *testing.T) {
 
 	assertContainsStackTrace(t, err)
 	assert.Equal(t, "msg: test", err.Error())
+}
+
+func TestWithMessageNil(t *testing.T) {
+	err := errors.WithMessage(nil, "msg")
+
+	assert.Nil(t, err)
 }
 
 func TestWithStackGoError(t *testing.T) {

@@ -13,9 +13,14 @@ type ErrorWithStackTrace interface {
 }
 
 func new(err error) ErrorWithStackTrace {
+	if err == nil {
+		return nil
+	}
+
 	e := withStackTrace{
 		err,
 	}
+
 	return &e
 }
 
