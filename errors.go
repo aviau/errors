@@ -11,7 +11,7 @@
 //        StackTrace() string
 //    }
 //
-// This allows you leverage the type system to ensure that all of the errors
+// This allows you to leverage the type system to ensure that all of the errors
 // that you return include a stack trace:
 //
 //    func Foo() ErrorWithStackTrace
